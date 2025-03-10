@@ -1,4 +1,3 @@
-```markdown
 # Portfólio 2025 - Leonardo
 
 Bem-vindo ao repositório do meu portfólio pessoal! Este projeto foi desenvolvido como uma oportunidade de aprendizado e aplicação de tecnologias modernas para criar uma experiência única e interativa.
@@ -32,7 +31,6 @@ O projeto ainda está em desenvolvimento, mas já apresenta uma base sólida com
 - **Lenis**
 
 ## 📁 Estrutura do Projeto
-```
 
 /Portifolio2025
 │
@@ -45,8 +43,6 @@ O projeto ainda está em desenvolvimento, mas já apresenta uma base sólida com
 │
 ├── index.html
 └── README.md
-
-````
 
 ## 🎯 Objetivos Futuros
 
@@ -62,7 +58,7 @@ Para visualizar o projeto, basta clonar o repositório e abrir o arquivo `index.
 ```bash
 git clone git@github.com:LeonardoNXT/Portifolio2025.git
 cd Portifolio2025
-````
+```
 
 Ou acesse o link do deploy (se disponível).
 
