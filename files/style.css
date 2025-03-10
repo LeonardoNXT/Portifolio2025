@@ -1,0 +1,505 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@font-face {
+  font-family: "Migra"; /* Nome personalizado */
+  src: url("./assets/font/MigraItalic-ExtralightItalic.woff2") format("woff2"),
+    url("./assets/font/MigraItalic-ExtralightItalic.ttf") format("truetype");
+  font-weight: normal; /* Peso da fonte (opcional) */
+  font-style: italic; /* Estilo (normal ou itálico) */
+}
+@font-face {
+  font-family: "Ogg";
+  src: url("./assets/font/Ogg-LightItalic-BF646c18fc49421.otf") format("otf"),
+    url("./assets/font/Ogg-LightItalic-BF646c18fc3aa5c.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Canopee";
+  src: url("./assets/font/canopee-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Aeonik";
+  src: url("./assets/font/Aeonik-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GrifinitoL";
+  src: url("https://db.onlinewebfonts.com/t/1c87f20c55baa7eccc98b8603b5eecea.eot");
+  src: url("https://db.onlinewebfonts.com/t/1c87f20c55baa7eccc98b8603b5eecea.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/1c87f20c55baa7eccc98b8603b5eecea.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/1c87f20c55baa7eccc98b8603b5eecea.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/1c87f20c55baa7eccc98b8603b5eecea.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/1c87f20c55baa7eccc98b8603b5eecea.svg#GrifinitoL")
+      format("svg");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body.no-scroll {
+  overflow: hidden; /* Desativa a rolagem */
+  height: 100vh; /* Mantém a altura da viewport */
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-toggle {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  cursor: pointer;
+  padding: 50px 50px;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  mix-blend-mode: difference;
+}
+.bar {
+  width: 2.8vw;
+  height: 3px;
+  background-color: #ffffff;
+  position: absolute;
+  z-index: 999;
+  transition: all 0.3s ease;
+  &:nth-child(2) {
+    margin-top: 10px;
+  }
+}
+.menu {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 998;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  top: -100%;
+}
+.menu-side {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000000;
+  top: -100%;
+  backdrop-filter: blur(40px);
+}
+.menu-content {
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-family: "Canopee";
+  z-index: 2;
+}
+.video-menu-content {
+  width: 70%;
+  height: 35vh;
+  object-fit: cover;
+  position: relative;
+}
+.video-menu-content video {
+  width: 100%;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  filter: grayscale(100%) brightness(0.4);
+  object-fit: cover;
+}
+.title-menu {
+  display: flex;
+  color: rgb(68, 41, 41);
+  position: relative;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10vw;
+  mix-blend-mode: difference;
+  justify-content: center;
+  overflow: hidden;
+}
+.left-shadow-menu {
+  width: 0%;
+  height: 100%;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    270deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.right-shadow-menu {
+  width: 0%;
+  height: 100%;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+.homepage {
+  width: 100%;
+  height: 200vh;
+  position: relative;
+}
+.top-homepage-fixed {
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  top: 0;
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.background-video {
+  width: 40vh;
+  height: 60vh;
+  object-fit: cover;
+  z-index: -1;
+}
+.letter-beggin {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(230, 230, 230);
+}
+.letter-beggin::before {
+  content: "";
+  width: 10%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.letter-beggin::after {
+  content: "";
+  width: 10%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    270deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.top-letter,
+.center-letter,
+.bottom-letter {
+  width: 100%;
+  height: 33.3%;
+  position: relative;
+  color: #fff;
+  font-size: 17vw;
+  text-wrap: nowrap;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+.letter-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 40px;
+}
+.letters {
+  line-height: 0.6;
+}
+.grid-template-white {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.grid-template-black {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.line-init {
+  z-index: 6;
+  width: 1px;
+  height: 100%;
+  background-color: #fff;
+}
+.center-letter::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  opacity: var(--opacity, 0);
+}
+.center-letter::after {
+  content: "";
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  opacity: var(--opacity, 0);
+}
+
+.line-black {
+  width: 0;
+  height: 100%;
+  background-color: #ffffff;
+}
+.owner-title {
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: "grifinitoL";
+  font-size: 50vw;
+  overflow: hidden;
+}
+.word-owner {
+  overflow: hidden;
+  line-height: 0.65;
+}
+.apresetation {
+  width: 100%;
+  padding-bottom: 5vw;
+  background-color: #ffffff;
+  display: flex;
+  font-size: 10vw;
+  font-family: "canopee";
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  gap: 2vw;
+}
+.carousel-text {
+  display: flex;
+  text-wrap: nowrap;
+  animation: carousel 30s linear infinite;
+  gap: 2vw;
+  z-index: 12;
+}
+@keyframes carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.projects {
+  width: 100%;
+  background-color: white;
+  position: relative;
+}
+.projects-part-top {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-bottom: 4vw;
+  padding-top: 10vw;
+}
+.p-part-top-left,
+.p-part-top-right {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+.p-part-top-left {
+  justify-content: center;
+  z-index: 2;
+}
+.p-part-top-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  scale: 1.2;
+}
+.p-part-top-right {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.p-part-top-right p:nth-child(1) {
+  font-family: "Aeonik";
+  margin-left: 2vw;
+  font-size: 18px;
+  position: absolute;
+  align-self: start;
+  top: 0;
+  left: 0;
+  color: #585858;
+}
+.p-part-top-right p:nth-child(2) {
+  font-family: "Aeonik";
+  font-size: 10vw;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  color: #313131;
+}
+.img-cont-proj-1,
+.img-cont-proj-2,
+.img-cont-proj-3 {
+  position: relative;
+  width: 30vw;
+  height: 40vw;
+  overflow: hidden;
+}
+.conteiner-absolute-blocks {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  z-index: 1;
+}
+.blocks-proj {
+  width: 100%;
+  height: 100%;
+  transition: 0.3s all;
+}
+.blocks-proj:hover {
+  background-color: #ffffff;
+}
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    padding: 50px 50px;
+    top: 0;
+    right: 0;
+  }
+  .bar {
+    width: 40px;
+  }
+  .projects-part-top {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .p-part-top-left div {
+    width: 90vw;
+    height: 70vh;
+  }
+  .p-part-top-right {
+    position: absolute;
+    z-index: 994;
+  }
+  .p-part-top-right p:nth-child(2) {
+    font-size: 13vw;
+    mix-blend-mode: difference;
+  }
+  .p-part-top-img-proj {
+    position: relative;
+  }
+  .p-part-top-img-text {
+    position: absolute;
+  }
+  .p-part-top-right p:nth-child(1) {
+    color: #ffffff;
+    margin-left: 10vw;
+    margin-top: 5vw;
+    font-size: 4vw;
+    mix-blend-mode: difference;
+  }
+  .p-part-top-right p:nth-child(2) {
+    color: #fff;
+  }
+  .p-part-top-right {
+    mix-blend-mode: difference;
+  }
+  .apresetation {
+    font-size: 20vw;
+  }
+  .menu-content a {
+    font-size: 18vw;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu-link {
+    display: flex;
+  }
+  html {
+    background-color: #000;
+  }
+  .projects-part-top {
+    padding-top: 0;
+  }
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 10vw;
+  }
+  .title-menu {
+    font-size: 30vw;
+  }
+  .video-menu-content video {
+    filter: grayscale(100%) brightness(0.8);
+  }
+}
