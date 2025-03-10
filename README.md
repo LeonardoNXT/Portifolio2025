@@ -66,5 +66,3 @@ Ou acesse o link do deploy (se disponível).
 ---
 
 Feito com 💜 por [Leonardo](https://github.com/LeonardoNXT)
-
-Agora é só copiar e colar no seu repositório! Se precisar de mais ajustes, é só avisar. 😊
