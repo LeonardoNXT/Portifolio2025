@@ -32,7 +32,7 @@ O projeto ainda está em desenvolvimento, mas já apresenta uma base sólida com
 
 ## 📁 Estrutura do Projeto
 
-/Portifolio2025
+```/Portifolio2025
 │
 ├── /files
 │ ├── /assets
@@ -43,6 +43,7 @@ O projeto ainda está em desenvolvimento, mas já apresenta uma base sólida com
 │
 ├── index.html
 └── README.md
+```
 
 ## 🎯 Objetivos Futuros
 
@@ -66,7 +67,4 @@ Ou acesse o link do deploy (se disponível).
 
 Feito com 💜 por [Leonardo](https://github.com/LeonardoNXT)
 
-```
-
 Agora é só copiar e colar no seu repositório! Se precisar de mais ajustes, é só avisar. 😊
-```
