@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   lenis = new Lenis({
     lerp: 0.1,
     smoothWheel: true,
+    smoothTouch: true,
+    lerp: 0.05,
   });
 
   function raf(time) {
@@ -12,9 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   requestAnimationFrame(raf);
 
-  // Movendo as chamadas para dentro do evento DOMContentLoaded
   lenis.stop();
   document.body.classList.add("no-scroll");
+
+  const conteinerAbout = document.querySelector(".block-test-div");
+  for (let i = 0; i < 240; i++) {
+    const div = document.createElement("div");
+    div.classList.add("block-about-top-test");
+    conteinerAbout.appendChild(div);
+  }
 });
 
 let togglemenu = false;
@@ -23,6 +31,7 @@ gsap.set(".word6", {
   y: "100%",
 });
 function toggleMenu() {
+  videomenu = document.querySelector(".video-menu");
   if (togglemenu) {
     document.body.classList.remove("no-scroll");
     lenis.start();
@@ -53,6 +62,9 @@ function toggleMenu() {
       opacity: 0,
       height: "0%",
       ease: "power3.inOut",
+      onComplete: () => {
+        videomenu.pause();
+      },
     });
     gsap.to(".word6", 1.5, {
       y: "100%",
@@ -62,6 +74,7 @@ function toggleMenu() {
   } else {
     document.body.classList.add("no-scroll");
     lenis.stop();
+    videomenu.play();
     gsap.to(".barbottom", 0.2, {
       marginTop: "0px",
       rotate: 45,
@@ -298,4 +311,96 @@ gsap.from(".pragraft-proj-3-mini", {
     end: "bottom bottom",
     scrub: true,
   },
+});
+console.clear();
+
+const circleElement = document.querySelector(".circle");
+const imgElement = document.querySelector(".img-test");
+
+const mouse = { x: 0, y: 0 };
+const previousMouse = { x: 0, y: 0 };
+const circle = { x: 0, y: 0 };
+const img = { x: 0, y: 0 };
+
+let currentScale = 0;
+let currentAngle = 0;
+
+window.addEventListener("mousemove", (e) => {
+  mouse.x = e.x;
+  mouse.y = e.y;
+});
+
+const speed = 0.17;
+
+const tick = () => {
+  if (window.innerWidth < 900) {
+    return; // Impede a animação se a largura da janela for menor que 900px
+  }
+  circle.x += (mouse.x - circle.x) * speed;
+  circle.y += (mouse.y - circle.y) * speed;
+  img.x += (mouse.x - img.x) * speed;
+  img.y += (mouse.y - img.y) * speed;
+
+  const imgTransform = `translate(${img.x}px, ${img.y}px)`;
+  const translateTransform = `translate(${circle.x}px, ${circle.y}px)`;
+
+  const deltaMouseX = mouse.x - previousMouse.x;
+  const deltaMouseY = mouse.y - previousMouse.y;
+
+  previousMouse.x = mouse.x;
+  previousMouse.y = mouse.y;
+
+  const mouseVelocity = Math.min(
+    Math.sqrt(deltaMouseX ** 2 + deltaMouseY ** 2) * 4,
+    150
+  );
+
+  const scaleValue = (mouseVelocity / 150) * 0.5;
+
+  currentScale += (scaleValue - currentScale) * speed;
+
+  const scaleTransform = `scale(${1 + currentScale}, ${1 - currentScale})`;
+
+  const angle = (Math.atan2(deltaMouseY, deltaMouseX) * 180) / Math.PI;
+
+  if (mouseVelocity > 20) {
+    currentAngle = angle;
+  }
+
+  const rotateTransform = `rotate(${currentAngle}deg)`;
+
+  circleElement.style.transform = `${translateTransform} ${rotateTransform} ${scaleTransform}`;
+  imgElement.style.transform = imgTransform;
+
+  window.requestAnimationFrame(tick);
+};
+
+tick();
+
+let menutugle = document.querySelector(".menu-toggle");
+let imgContent = document.querySelector(".img-sec-img");
+
+menutugle.addEventListener("mouseenter", () => {
+  const circle = document.querySelector(".circle");
+  circle.style.setProperty("--circle-size", "100px");
+  circle.style.background = "#fff";
+});
+menutugle.addEventListener("mouseleave", () => {
+  const circle = document.querySelector(".circle");
+  circle.style.setProperty("--circle-size", "60px");
+  circle.style.background = "transparent";
+});
+imgContent.addEventListener("mouseenter", () => {
+  const circle = document.querySelector(".circle");
+  circle.style.setProperty("--circle-size", "100px");
+  circle.style.background = "#fff";
+  imgElement.style.width = "10vw";
+  imgElement.style.height = "10vw";
+});
+imgContent.addEventListener("mouseleave", () => {
+  const circle = document.querySelector(".circle");
+  circle.style.setProperty("--circle-size", "60px");
+  circle.style.background = "transparent";
+  imgElement.style.width = "0vw";
+  imgElement.style.height = "0vw";
 });
