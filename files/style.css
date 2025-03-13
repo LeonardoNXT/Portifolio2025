@@ -629,6 +629,9 @@ body {
   .center-about-resumed {
     flex-direction: column;
   }
+  .center-about-resumed-2 {
+    flex-direction: column-reverse;
+  }
   .left-center-a-r {
     font-size: 5vw;
     width: 100%;
@@ -636,7 +639,7 @@ body {
     padding-top: 2vw;
   }
   .right-center-a-r {
-    font-size: 5vw;
+    font-size: 4vw;
     width: 100%;
     padding: 2vw 5vw;
     padding-top: 7vw;
