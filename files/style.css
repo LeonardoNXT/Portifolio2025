@@ -510,7 +510,11 @@ body {
   width: 100%;
   font-family: "Aeonik";
   display: flex;
-  padding: 5vw 2vw;
+  padding: 6vw 2vw;
+  position: relative;
+}
+.left-center-a-r-2 p {
+  text-align: end;
 }
 .left-center-a-r,
 .right-center-a-r {
@@ -520,7 +524,8 @@ body {
   font-size: 1.5vw;
 }
 .right-center-a-r {
-  font-size: 2vw;
+  font-size: 1.5vw;
+  text-align: justify;
 }
 .img-test {
   --img-size: 0px;
