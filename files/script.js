@@ -17,12 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
   lenis.stop();
   document.body.classList.add("no-scroll");
 
-  const conteinerAbout = document.querySelector(".block-test-div");
-  for (let i = 0; i < 240; i++) {
-    const div = document.createElement("div");
-    div.classList.add("block-about-top-test");
-    conteinerAbout.appendChild(div);
-  }
+  const conteinerAbout = document.querySelectorAll(".block-test-div");
+  conteinerAbout.forEach((item) => {
+    for (let i = 0; i < 240; i++) {
+      const div = document.createElement("div");
+      div.classList.add("block-about-top-test");
+      item.appendChild(div);
+    }
+  });
 });
 
 let togglemenu = false;
@@ -316,11 +318,13 @@ console.clear();
 
 const circleElement = document.querySelector(".circle");
 const imgElement = document.querySelector(".img-test");
+const imgElement2 = document.querySelector(".img-test-2");
 
 const mouse = { x: 0, y: 0 };
 const previousMouse = { x: 0, y: 0 };
 const circle = { x: 0, y: 0 };
 const img = { x: 0, y: 0 };
+const img2 = { x: 0, y: 0 };
 
 let currentScale = 0;
 let currentAngle = 0;
@@ -340,9 +344,12 @@ const tick = () => {
   circle.y += (mouse.y - circle.y) * speed;
   img.x += (mouse.x - img.x) * speed;
   img.y += (mouse.y - img.y) * speed;
+  img2.x += (mouse.x - img2.x) * speed;
+  img2.y += (mouse.y - img2.y) * speed;
 
   const imgTransform = `translate(${img.x}px, ${img.y}px)`;
   const translateTransform = `translate(${circle.x}px, ${circle.y}px)`;
+  const imgTransform2 = `translate(${img2.x}px, ${img2.y}px)`;
 
   const deltaMouseX = mouse.x - previousMouse.x;
   const deltaMouseY = mouse.y - previousMouse.y;
@@ -371,14 +378,19 @@ const tick = () => {
 
   circleElement.style.transform = `${translateTransform} ${rotateTransform} ${scaleTransform}`;
   imgElement.style.transform = imgTransform;
+  imgElement2.style.transform = imgTransform2;
 
   window.requestAnimationFrame(tick);
 };
 
 tick();
+gsap.set(".img-test-2, .img-test-1", {
+  scale: 1.5,
+});
 
 let menutugle = document.querySelector(".menu-toggle");
 let imgContent = document.querySelector(".img-sec-img");
+let ImgContent2 = document.querySelector(".img-sec-img-2");
 
 menutugle.addEventListener("mouseenter", () => {
   const circle = document.querySelector(".circle");
@@ -403,4 +415,30 @@ imgContent.addEventListener("mouseleave", () => {
   circle.style.background = "transparent";
   imgElement.style.width = "0vw";
   imgElement.style.height = "0vw";
+});
+ImgContent2.addEventListener("mouseenter", () => {
+  const circle = document.querySelector(".circle");
+  circle.style.setProperty("--circle-size", "100px");
+  circle.style.background = "#fff";
+  imgElement2.style.width = "15vw";
+  imgElement2.style.height = "8vw";
+  imgElement2.play();
+});
+ImgContent2.addEventListener("mouseleave", () => {
+  const circle = document.querySelector(".circle");
+  circle.style.setProperty("--circle-size", "60px");
+  circle.style.background = "transparent";
+  imgElement2.style.width = "0vw";
+  imgElement2.style.height = "0vw";
+  imgElement2.pause();
+  imgElement2.currentTime = 0;
+});
+gsap.to(".content-bottom-about-resumed", {
+  top: "0%",
+  scrollTrigger: {
+    trigger: ".bottom-about-resumed",
+    start: "top bottom",
+    end: "bottom bottom",
+    scrub: 1,
+  },
 });

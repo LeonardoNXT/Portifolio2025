@@ -468,6 +468,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 2;
 }
 .top-a-r-left,
 .top-a-r-right {
@@ -477,7 +478,7 @@ body {
   width: 100%;
   background-color: #ebebeb;
 }
-.top-about-resumed p {
+.text-top-r-a {
   font-family: "Aeonik";
   font-size: 15vw;
   color: #141414;
@@ -539,7 +540,58 @@ body {
   transition: width 0.5s ease, height 0.5s ease, background 0.5s ease;
   border-radius: 50%;
 }
-
+.img-test-2 {
+  --img-size: 0px;
+  position: fixed;
+  height: var(--img-size);
+  width: var(--img-size);
+  top: 4%;
+  left: 4%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.5s ease, height 0.5s ease, background 0.5s ease;
+  border-radius: 5px;
+}
+.migra {
+  font-family: "Migra";
+  font-weight: 550;
+  font-size: 1.6vw;
+}
+.bottom-about-resumed {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.content-bottom-about-resumed {
+  width: 100%;
+  height: 100%;
+  background-color: #131313;
+  position: absolute;
+  top: 100%;
+  z-index: 1;
+}
+.text-bottom-r-a {
+  mix-blend-mode: difference;
+  color: #ffffff;
+  z-index: 4;
+  font-family: "Aeonik";
+  font-size: 15vw;
+  margin-left: 2vw;
+  padding: 1vw 0vw;
+  z-index: 3;
+  pointer-events: none;
+  text-align: center;
+  line-height: 1.3;
+}
+.block-test-div-2 {
+  z-index: 2;
+}
+.project-section {
+  width: 100%;
+  height: 100vh;
+  background-color: #131313;
+  position: relative;
+}
 @media screen and (max-width: 768px) {
   .menu-toggle {
     padding: 50px 50px;
@@ -615,7 +667,8 @@ body {
   .video-menu-content video {
     filter: grayscale(100%) brightness(0.8);
   }
-  .top-about-resumed p {
+  .text-top-r-a,
+  .text-bottom-r-a {
     font-size: 20vw;
     padding-left: 2vw;
     line-height: 2;
@@ -624,6 +677,9 @@ body {
     display: none;
   }
   .img-test {
+    display: none;
+  }
+  .img-test-2 {
     display: none;
   }
   .center-about-resumed {
@@ -644,5 +700,8 @@ body {
     padding: 2vw 5vw;
     padding-top: 7vw;
     text-align: justify;
+  }
+  .migra {
+    font-size: 4vw;
   }
 }
