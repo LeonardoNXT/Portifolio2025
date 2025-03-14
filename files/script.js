@@ -123,14 +123,14 @@ function toggleMenu() {
 gsap.from(".content-l-top, .content-l-bottom", 7, {
   opacity: 0,
   filter: "blur(10px)",
-  x: "-25%",
+  x: "-10%",
 });
 gsap.to(".center-letter", 4, {
   "--opacity": 1,
 });
 gsap.from(".content-l-center", 7, {
   opacity: 0,
-  x: "25%",
+  x: "100%",
   filter: "blur(10px)",
 });
 gsap.from(".background-video", 5, {
