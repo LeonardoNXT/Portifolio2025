@@ -350,6 +350,7 @@ const tick = () => {
   const imgTransform = `translate(${img.x}px, ${img.y}px)`;
   const translateTransform = `translate(${circle.x}px, ${circle.y}px)`;
   const imgTransform2 = `translate(${img2.x}px, ${img2.y}px)`;
+  const selectTransform = `translate(${circle.x}px, ${circle.y}px)`;
 
   const deltaMouseX = mouse.x - previousMouse.x;
   const deltaMouseY = mouse.y - previousMouse.y;
@@ -440,5 +441,92 @@ gsap.to(".content-bottom-about-resumed", {
     start: "top bottom",
     end: "bottom bottom",
     scrub: 1,
+  },
+});
+
+const paragraph2 = document.querySelector(".text-top-r-a");
+const newDiv2 = document.createElement("div");
+newDiv2.className = paragraph2.className;
+const text2 = paragraph2.textContent;
+const characters2 = text2.split("");
+
+characters2.forEach((char) => {
+  const charDiv = document.createElement("div");
+  charDiv.className = "word2 word1";
+  charDiv.textContent = char;
+  newDiv2.appendChild(charDiv);
+});
+
+paragraph2.replaceWith(newDiv2);
+
+gsap.set(".word1", {
+  y: "100%",
+  rotate: "45deg",
+});
+gsap.to(".word1", {
+  y: "0%",
+  rotate: "0deg",
+  stagger: 0.09,
+  scrollTrigger: {
+    trigger: ".top-about-resumed",
+    start: "top bottom",
+    end: "bottom bottom",
+    scrub: true,
+  },
+});
+
+const paragraph = document.querySelector(".text-bottom-r-a");
+const newDiv = document.createElement("div");
+newDiv.className = paragraph.className;
+const text = paragraph.textContent;
+const characters = text.split("");
+
+characters.forEach((char) => {
+  const charDiv = document.createElement("div");
+  charDiv.className = "word2 word3";
+  charDiv.textContent = char;
+  newDiv.appendChild(charDiv);
+});
+
+paragraph.replaceWith(newDiv);
+
+gsap.set(".word3", {
+  y: "100%",
+  rotate: "45deg",
+});
+gsap.to(".word3", {
+  y: "0%",
+  rotate: "0deg",
+  stagger: 0.09,
+  scrollTrigger: {
+    trigger: ".bottom-about-resumed",
+    start: "top bottom",
+    end: "bottom bottom",
+    scrub: true,
+  },
+});
+
+gsap.set(".text-center-r-a, .l-c-p-1", {
+  opacity: 0,
+});
+gsap.to(".text-center-r-a, .l-c-p-1", {
+  opacity: 1,
+  scrollTrigger: {
+    trigger: ".c-a-r-1",
+    start: "top bottom",
+    end: "bottom bottom",
+    scrub: true,
+  },
+});
+gsap.set(".text-center-r-a-2, .l-c-p-2", {
+  opacity: 0,
+});
+gsap.to(".text-center-r-a-2, .l-c-p-2", {
+  opacity: 1,
+  scrollTrigger: {
+    trigger: ".center-about-resumed-2",
+    start: "top bottom",
+    end: "bottom bottom",
+    scrub: true,
   },
 });
