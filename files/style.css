@@ -666,6 +666,27 @@ body {
   font-size: 1.5vw;
   padding: 0 2vw;
 }
+.img-destaq-site-nwa-content {
+  width: 100%;
+  padding: 6vw 2vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.destaque-NWA-text-2 {
+  font-size: 2vw;
+  font-family: "Aeonik";
+}
+.img-destaq-site-nwa-content video {
+  width: 70%;
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  filter: grayscale(100%);
+  pointer-events: none;
+}
 .destaque-nwa-Galery {
   width: 100%;
   height: max-content;
@@ -675,6 +696,23 @@ body {
   display: flex;
   position: relative;
   transition: 0.2s all;
+}
+.content-dest-nwa-deploy {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+}
+.content-dest-nwa-deploy p {
+  padding: 15px 30px;
+  border: 1px solid #c7c7c7;
+  background-color: #ffffff;
+  font-family: "Aeonik";
+  font-size: 1vw;
+  border-radius: 20px;
+  margin-top: 6vw;
+  margin-bottom: 2vw;
+  color: #313131;
 }
 .destaque-c-p-s {
   font-size: 10vw;
@@ -690,32 +728,50 @@ body {
   padding-right: 2vw;
   font-size: 1.5vw;
   font-family: "Aeonik";
+  display: flex;
+  position: relative;
+  text-align: justify;
+  color: #333;
 }
-.d-nwa-g-right-1 {
+.d-nwa-g-right-1 p {
+  width: 100%;
   text-align: end;
 }
 .content-c-p-s-2 {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-bottom: 2vw;
   background-color: #ffffff;
   position: relative;
   flex-direction: column;
+  overflow: hidden;
 }
-.content-c-p-s-2 img {
-  width: 40%;
-  border-radius: 10px;
-}
+
 .destaque-NWA-text {
   position: relative;
-  font-size: 10vw;
+  font-size: 15vw;
   width: 100%;
   text-align: center;
   padding-right: 2vw;
   font-family: "Migra";
 }
+.destaque-NWA-text p {
+  position: relative;
+  z-index: 5;
+  padding-top: 6vw;
+  padding-bottom: 2vw;
+  line-height: 0.8;
+  display: flex;
+  flex-direction: column;
+}
+.destaque-NWA-text p::after {
+  content: "Em desenvolvimento";
+  display: inline;
+  font-size: 1vw;
+  letter-spacing: normal;
 
+  font-family: "Aeonik";
+}
 .destaq-carousel-nwa {
   display: flex;
   background-color: white;
@@ -733,20 +789,34 @@ body {
   font-family: "Migra";
   font-size: 40px;
 }
-.destaq-video-nwa {
+.destaq-other-color-nwa {
   width: 100%;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  padding-top: 2vw;
-  padding-bottom: 2vw;
+  position: relative;
+  left: 0%;
+  transition: 1s all ease-in-out;
+  z-index: 5;
 }
-.destaq-video-nwa video {
-  width: 60%;
+.content-gray-scale {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  place-items: center;
+  position: absolute;
+}
+.content-gray-scale div {
+  width: 100%;
+  height: 1px;
+  background-color: #d1d1d1;
 }
 .contact-section {
   width: 100%;
   height: 100vh;
   position: relative;
+  display: flex;
   background-color: #000000;
 }
 

@@ -530,3 +530,12 @@ gsap.to(".text-center-r-a-2, .l-c-p-2", {
     scrub: true,
   },
 });
+gsap.to(".text-c-n-a-v-c-p-s", {
+  letterSpacing: "1.5vw",
+  scrollTrigger: {
+    trigger: ".content-name-and-video-c-p-s",
+    start: "top bottom",
+    end: "bottom bottom",
+    scrub: true,
+  },
+});
