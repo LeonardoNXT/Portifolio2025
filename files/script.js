@@ -157,6 +157,9 @@ gsap.from(".grid-template-white", 1, {
   onComplete: () => {
     document.body.classList.remove("no-scroll");
     lenis.start();
+    gsap.to(".letter-beggin", {
+      opacity: 0,
+    });
   },
 });
 gsap.from(".word-owner", 2, {
@@ -530,12 +533,66 @@ gsap.to(".text-center-r-a-2, .l-c-p-2", {
     scrub: true,
   },
 });
-gsap.to(".text-c-n-a-v-c-p-s", {
-  letterSpacing: "1.5vw",
+const sizeSticky = document.querySelector(".conteiner-s-p-s").clientHeight;
+const widthSticky = document.querySelector(
+  ".content-sticky-project-section"
+).clientWidth;
+const scale = 2;
+const size = (sizeSticky / 40) * scale;
+console.log(size);
+gsap.set(".side-shadow-sticky-p-s", {
+  y: "100%",
+});
+gsap.to(".div-bol-test", {
+  width: "10vh",
+  height: "10vh",
+  scale: size,
   scrollTrigger: {
-    trigger: ".content-name-and-video-c-p-s",
+    trigger: ".content-sticky-project-section",
+    start: `${sizeSticky}px bottom`,
+    end: `${sizeSticky * 3}px bottom`,
+    scrub: true,
+  },
+});
+gsap.to(".word8", {
+  color: "#fff",
+  scrollTrigger: {
+    trigger: ".content-sticky-project-section",
+    start: `${sizeSticky * 2}px bottom`,
+    end: `${sizeSticky * 3}px bottom`,
+    scrub: true,
+  },
+});
+gsap.to(".p-name-project", {
+  bottom: "10vw",
+  gap: "3vw",
+  fontSize: "22vw",
+  scrollTrigger: {
+    trigger: ".content-sticky-project-section",
+    start: `${sizeSticky * 2}px bottom`,
+    end: `${sizeSticky * 3}px bottom`,
+    scrub: true,
+  },
+});
+gsap.to(".side-shadow-sticky-p-s", {
+  y: "0px",
+  scrollTrigger: {
+    trigger: ".content-sticky-project-section",
+    start: `${sizeSticky * 2}px bottom`,
+    end: `${sizeSticky * 3}px bottom`,
+    scrub: true,
+  },
+});
+gsap.set(".f-i-nwa-img", {
+  scale: 2,
+  yPercent: -20,
+});
+gsap.to(".f-i-nwa-img", {
+  yPercent: 20,
+  scrollTrigger: {
+    trigger: ".firsh-img-nwa-page",
     start: "top bottom",
-    end: "bottom bottom",
+    end: "bottom top",
     scrub: true,
   },
 });
