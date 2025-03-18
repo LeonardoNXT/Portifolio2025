@@ -811,10 +811,49 @@ body {
   display: flex;
   overflow: hidden;
   height: 100vh;
+  position: relative;
 }
 .firsh-img-nwa-page img {
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
+}
+.f-i-nwa-img-content {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  mix-blend-mode: difference;
+}
+.f-i-nwa-img-content-p {
+  font-family: "Aeonik";
+  color: var(--primary-color);
+  text-transform: uppercase;
+  text-align: justify;
+  font-size: 0.7vw;
+  padding: 2vw 2vw;
+}
+.f-i-nwa-img-content-p-1 {
+  font-family: "Aeonik";
+  color: var(--primary-color);
+  text-transform: uppercase;
+  text-align: justify;
+  font-size: 5vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+.f-i-nwa-img-content-p-2 {
+  font-family: "Aeonik";
+  color: var(--primary-color);
+  text-transform: uppercase;
+  text-align: justify;
+  font-size: 0.7vw;
+  position: absolute;
+  right: 2vw;
+  bottom: 2vw;
 }
 .content-gray-scale div {
   width: 100%;
@@ -965,6 +1004,7 @@ body {
   .content-c-p-s {
     flex-direction: column;
     padding: 10vw 0;
+    display: none;
   }
   .destaque-c-p-s {
     font-size: 25vw;
@@ -981,5 +1021,25 @@ body {
   }
   .d-nwa-g-l-none {
     display: none;
+  }
+  .firsh-img-nwa-page {
+    padding: 2vw 2vw;
+  }
+  .p-name-project {
+    padding-bottom: 4vw;
+  }
+  .destaq-carousel-nwa-text {
+    font-size: 3vw;
+  }
+  .firsh-paragraf-nwa-page {
+    font-size: 2.5vw;
+    padding: 10vw 4vw;
+  }
+  .second-paragraf-nwa-page {
+    font-size: 5vw;
+    padding: 1cap 4vw 4vw;
+  }
+  .firsh-img-nwa-page {
+    height: 70vh;
   }
 }

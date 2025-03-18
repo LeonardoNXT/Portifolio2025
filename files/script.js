@@ -596,3 +596,34 @@ gsap.to(".f-i-nwa-img", {
     scrub: true,
   },
 });
+const textElement = document.querySelector(".f-i-nwa-img-content-p-1");
+const words = ["sustentabilidade", "inovação", "ecologia"];
+let currentWordIndex = 0;
+
+function scrambleText(word, iterations = 10, delay = 100) {
+  let iteration = 0;
+  const originalWord = word;
+  const interval = setInterval(() => {
+    textElement.textContent = word
+      .split("")
+      .map((letter, index) => {
+        if (index < iteration) {
+          return originalWord[index];
+        }
+        return String.fromCharCode(Math.random() * 26 + 97);
+      })
+      .join("");
+    if (iteration >= originalWord.length) {
+      clearInterval(interval);
+    }
+    iteration++;
+  }, delay);
+}
+
+function changeWord() {
+  scrambleText(words[currentWordIndex], 10, 100);
+  currentWordIndex = (currentWordIndex + 1) % words.length;
+  setTimeout(changeWord, 3000);
+}
+
+changeWord();
